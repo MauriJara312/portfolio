@@ -11,7 +11,11 @@ import {useRef, useEffect, useState } from "react";
  import{
     RiTeamFill
  } from "react-icons/ri"
-
+ 
+ import{
+    ImShrink2
+ } from "react-icons/im"
+ 
  import{
     SiTheconversation
  } from "react-icons/si"
@@ -53,7 +57,7 @@ function Carrusel( )  {
         
         >
 
-            <motion.h3 className=' text-myColor max-sm:text-base max-sm:block max-sm:text-center justify-center flex my-9 text-2xl border-b-2 p-1 hover:scale-105 transition-all  '>Arrastra para saber un poco más de mi 🤠</motion.h3>
+            <motion.h3 className=' text-myColor max-sm:text-base max-sm:block max-sm:text-center justify-center flex my-9 text-xl border-y-2 p-1 hover:scale-105 transition-all  '>Arrastra para saber un poco más de mi 🤠</motion.h3>
 
 
             <motion.div 
@@ -95,7 +99,7 @@ function Carrusel( )  {
 
                     <motion.div className="bg-darkColor max-sm:w-32 max-sm:h-56 rounded-xl w-40 flex flex-col dark:bg-myColor  ">
 
-                    <FaRegLightbulb className='self-center my-3 p-3 dark:mybg-myColordayColor bg-dayColor text-myColor overflow-hidden rounded-full hover:animate-pulse w-16  h-16  dark:text-darkColor '/>
+                    <ImShrink2 className='self-center my-3 p-3 dark:mybg-myColordayColor bg-dayColor text-myColor overflow-hidden rounded-full hover:animate-pulse w-16  h-16  dark:text-darkColor '/>
                     <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor font-semibold" >Diseño responsive</h3>
 
                     </motion.div>

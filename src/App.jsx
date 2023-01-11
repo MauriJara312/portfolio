@@ -47,6 +47,8 @@ function App() {
 
 
   const useIsSmall = () => useMediaQuery('(min-width: 480px)');
+  const [pIsOpen, setPIsOpen] = useState(false);
+  const [id,setId] = useState(0)
   const isSmall = useIsSmall()
   const [isOpen ,setIsOpen] = useState(false);
   const toggle = () => setIsOpen (!isOpen);
@@ -78,7 +80,7 @@ function App() {
 
   return (
 
-    <div className={darkMode? "dark" : ""}>
+    <motion.div layout className={darkMode? "dark" : ""}>
 
       {
         leng?
@@ -221,7 +223,7 @@ function App() {
           opacity: 1,
         }}
       
-          className='flex fixed top-0 right-0 backdrop-contrast-75 backdrop-blur-sm rounded-md z-10 h-14 max-sm:h-10 p-3 mt-0 text-opacity-95 font-semibolds text-base'>
+          className='flex fixed top-0 right-0 backdrop-contrast-75 backdrop-blur-sm rounded-md z-10 h-12 max-sm:h-10 p-3 mt-0 text-opacity-95 font-semibolds text-base'>
   
               <Link 
   
@@ -252,7 +254,7 @@ function App() {
       
             
               
-                  <a onClick={()=> setdarkMode(!darkMode)} className='hover:scale-105 max-sm:absolute max-sm:top-2 max-sm:right-9 transition-all dark:text-darkColor  hover:cursor-pointer  max-sm:h-6 max-sm:w-6 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 text-myColor shadow-md hover:shadow-lg  dark:hover:text-dayColor '>
+                  <a onClick={()=> setdarkMode(!darkMode)} className='hover:scale-105 max-sm:absolute mt max-sm:top-2 max-sm:right-9 transition-all dark:text-dayColor  hover:cursor-pointer  max-sm:h-6 max-sm:w-6 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 text-myColor shadow-md hover:shadow-lg  dark:hover:text-darkColor '>
               <BsFillMoonStarsFill/>
               </a>
       
@@ -266,7 +268,7 @@ function App() {
               </button>
             :
             <a >
-            <img src={english} alt="english" onClick={()=> setleng(!leng)} className='max-sm:absolute max-sm:top-2 max-sm:right-2 hover:scale-105 hover:cursor-pointer transition-all dark:text-darkColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-2 w-8 h-8 max-sm:mr-0 max-sm:h-6 max-sm:w-6 justify-center rounded-sm border-b-2 border-r-2 text-myColor hover:text-darkColor dark:hover:text-dayColor ' />
+            <img src={english} alt="english" onClick={()=> setleng(!leng)} className='max-sm:absolute max-sm:top-2 max-sm:right-2 hover:scale-105 hover:cursor-pointer transition-all dark:text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-2 w-8 h-8 max-sm:mr-0 max-sm:h-6 max-sm:w-6 justify-center rounded-sm border-b-2 border-r-2 text-myColor hover:text-darkColor dark:hover:text-dayColor ' />
             </a>
           }
       
@@ -285,58 +287,83 @@ function App() {
           
           // mobile
 
-          <div>
-
-
-          {
-
-          isOpen?
+          <motion.div >
 
           <motion.div
 
+          layout transition={{layout:{duration:0.5,type:"spring"},
+          
+          delay:3
+          
+        
+        }}
 
-          className="backdrop-contrast-75 flex flex-col gap-2 dark:text-dayColor dark:shadow-dayColor backdrop-blur-md shadow-myColor shadow-md rounded-md w-2/5 border-l-2 h-2/6  z-10 fixed top-0 right-0 text-4xl text-myColor"
+          initial={{
+            opacity:0
+          }}
+
+
+
+          animate={{
+            opacity:1
+          }}
+
+          className="backdrop-contrast-75 flex flex-col gap-3 dark:text-dayColor dark:shadow-dayColor backdrop-blur-md shadow-myColor shadow-md rounded-md border-l-2 z-10 fixed top-0 right-0 text-4xl text-myColor"
 
           >
 
           <FaBars  className=  "w-auto fixed top-1 right-1" onClick={toggle}/>
 
-          <h1 className="text-xl mb-5" >Menu</h1>
+          {
+            isOpen &&(
 
-          <div className='flex flex-col text-center gap-2'>
+
+         <motion.div className='gap-6 m-4'>
+
+          <motion.h1 className="text-xl mb-5" >Menu</motion.h1>
+
+          <motion.div  className='flex flex-col justify-center text-center gap-2'>
           <Link
+
+          onClick={()=>setIsOpen(false)}
           to="/" spy={true} smooth={true} offset={-50} duration={500}
-          className='text-lg'>
+          className='text-lg border-b-2'>
           Home
           </Link>
 
 
           <Link 
+
+          onClick={()=>setIsOpen(false)}
           to="about" spy={true} smooth={true} offset={-0} duration={500}
-          className='text-lg'>
+          className='text-lg border-b-2'>
           About
           </Link>
 
 
           <Link
+
+          onClick={()=>setIsOpen(false)}
           to="proyectos" spy={true} smooth={true} offset={-50} duration={500}
-          className='text-lg'>
+          className='text-lg border-b-2'>
           Projects
           </Link>
 
 
           <Link
+
+          onClick={()=>setIsOpen(false)}
           to="contact" spy={true} smooth={true} offset={-50} duration={500}
-          className='text-lg'>
+          className='text-lg border-b-2'>
           Contact
           </Link>
-          </div>
+          </motion.div>
 
 
 
-          <ul className='relative bottom-0 mr-8' >
+          <ul className='mt-4 p-0 flex justify-center' >
 
-                <a onClick={()=> setdarkMode(!darkMode)} className='hover:scale-105 mx-5 max-sm:absolute max-sm:top-2 max-sm:right-9 transition-all dark:text-darkColor  hover:cursor-pointer  max-sm:h-8 max-sm:w-8 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 text-myColor shadow-md hover:shadow-lg  dark:hover:text-dayColor '>
+                <a onClick={()=> setdarkMode(!darkMode)} className='hover:scale-105 mx-5 transition-all dark:text-darkColor  hover:cursor-pointer  max-sm:h-8 max-sm:w-8 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 text-myColor shadow-md hover:shadow-lg  dark:hover:text-dayColor '>
                   <BsFillMoonStarsFill/>
                 </a>
 
@@ -344,58 +371,27 @@ function App() {
                 {
                       leng ? 
 
-                      <button >
+                      <a >
                       <img src={spanish} alt="spanish" onClick={()=> setleng(!leng)} className='hover:scale-105 mx-5 transition-all hover:cursor-pointer  dark:text-darkColor bg-myColor p-2  w-12 rounded-lg text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-myColor hover:text-darkColor dark:hover:text-dayColor ' />
-                      </button>
+                      </a>
 
                       :
 
                       <a >
-                      <img src={english} alt="english" onClick={()=> setleng(!leng)} className='max-sm:absolute max-sm:top-2 max-sm:right-2 hover:scale-105 hover:cursor-pointer transition-all dark:text-darkColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-5 w-8 h-8 max-sm:mr-0 max-sm:h-8 max-sm:w-8 justify-center rounded-sm border-b-2 border-r-2 text-myColor hover:text-darkColor dark:hover:text-dayColor ' />
+                      <img src={english} alt="english" onClick={()=> setleng(!leng)} className='  hover:scale-105 hover:cursor-pointer transition-all dark:text-darkColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-5 w-8 h-8  max-sm:h-8 max-sm:w-8 justify-center rounded-sm border-b-2 border-r-2 text-myColor hover:text-darkColor dark:hover:text-dayColor ' />
                       </a>
                 }
 
           </ul>
 
-
-
           </motion.div>
-
-          ://////////////////////////////////////////////////
-
-          <motion.div 
-
-          initial={{
-            opacity:0
-          }}
-
-          transition={{
-            duration:0.5,
-            delay:3.25
-          }}
-
-          animate={{ 
-          opacity: 1,
-          }}
-
-          className="backdrop-contrast-75 backdrop-blur-sm rounded-md w-12 h-12 z-10 fixed top-0 right-0 text-4xl text-myColor">
-
-          <FaBars  className=  "w-auto fixed top-1 right-1" onClick={toggle}/>
-
-          </motion.div>
-
-          }
-
-
-
-
-
-
-
-          </div>
-
-
           
+            )} 
+
+          </motion.div>
+
+          </motion.div>
+
 
         }
 
@@ -405,7 +401,7 @@ function App() {
 
         {/* titulo */}
     
-        <div className=' max-sm:mt-1 mb-12 '>
+        <div className=' max-sm:mt-1 mb-16 '>
     
           <motion.h1
           
@@ -535,13 +531,17 @@ function App() {
 
                 <div className='w-7/12 rounded-3xl p-3 max-sm:w-auto max-sm:flex flex-wrap'>
 
-                  <div className='  hover:scale-110 transition-all max-sm:m-0 m-5 rounded-xl'>
+                  <div className='   hover:scale-110 transition-all max-sm:m-0 m-5 mb-11 mt-0 rounded-xl'>
 
-                      <h1 className='max-sm:text-sm flex justify-center p-7 rounded-lg text-myColor'>Hola! Soy Mauricio</h1>
+                      <h1 className='max-sm:text-sm flex justify-center pt-0 p-7 rounded-lg text-myColor'>Hola! Soy Mauricio</h1>
 
-                      <p className='max-sm:text-sm  block text-center  text-myColor'>Desarrollador web full stack desde Argentina 💙🤍💙</p>
+                      <p className='max-sm:text-sm text-sm  block text-center  text-myColor'>Desarrollador web full stack</p>
 
-                      <p className=' max-sm:text-sm  inline-block text-center px-7 py-7 text-myColor '>Siempre sentí curiosisdad por el mundo IT y tras varios años de aprendizaje autodidacta me gradué del bootcamp full stack web developer de soyHenry.
+                      <p className=' max-sm:text-sm text-sm inline-block text-center px-7 pt-7 text-myColor '>Siempre sentí curiosisdad por el mundo IT y tras varios años de aprendizaje autodidacta me gradué del bootcamp full stack web developer de soyHenry.
+
+                      </p>
+
+                      <p className=' max-sm:text-sm text-sm inline-block text-center px-7 pt-7 text-myColor '>
                       Con mucha capacidad para integrar equipos y con alto nivel de inglés estoy listo para cualquier desafío que quieras proponerme. Siempre listo para mi proxima experiencia 😁</p>
 
                 </div>
@@ -558,21 +558,21 @@ function App() {
 
                   {/* skillset */}
 
-                  <div className=' flex flex-wrap justify-center w-auto text-myColor gap-8 border-l-4 p-7' >
+                  <div className=' flex flex-wrap justify-center w-auto text-myColor gap-5 border-l-4 mx-4 px-4' >
 
-                    <h2 className='flex w-4/5 text-4xl justify-center hover:scale-105 transition-all rounded-lg  text-myColor '>My skillSet</h2>
+                    <h2 className='flex w-4/5 text-3xl justify-center hover:scale-105 transition-all rounded-lg  text-myColor '>My skillSet</h2>
 
-                      <IoLogoJavascript className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor' />
-                      <IoLogoReact className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-                      <IoLogoNodejs className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-                      <IoLogoHtml5 className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-                      <SiCss3 className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-                      <SiRedux className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-                      <SiTailwindcss className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-                      <SiPostgresql className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-                      <SiExpress className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-                      <SiRailway className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-                      <SiVercel className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-24 h-24 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor ' />
+                      <IoLogoJavascript className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor' />
+                      <IoLogoReact className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
+                      <IoLogoNodejs className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
+                      <IoLogoHtml5 className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
+                      <SiCss3 className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
+                      <SiRedux className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
+                      <SiTailwindcss className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
+                      <SiPostgresql className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
+                      <SiExpress className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
+                      <SiRailway className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
+                      <SiVercel className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor ' />
 
                   </div>
 
@@ -593,20 +593,19 @@ function App() {
 
         <div className='mb-32 flex flex-wrap justify-center w-auto gap-10 p-14 px-52'>
 
-                <div className='text-myColor dark:bg-dayColor bg-darkColor hover:scale-125 transition-all duration-300  w-64 h-72 min-w-min p-2 m-2 rounded-lg'> 
+                <motion.div 
+                
+                onClick={()=>(setPIsOpen(!pIsOpen))}      
+                
+            
+                
+                className='text-myColor dark:bg-dayColor bg-darkColor hover:scale-125 transition-all duration-300  w-64 h-72 min-w-min p-2 m-2 rounded-lg'>
+
                   <h2 className='text-lg mb-2 p-3 text-center text-myColor'>Artist Portfolio</h2>
                   <img className='rounded-3xl p-4 ' src={proyecto1}  /> 
-                </div>
 
-                <div className='text-myColor dark:bg-dayColor bg-darkColor hover:scale-125 transition-all duration-300  w-64 h-72 min-w-min p-2 m-2 rounded-lg'> 
-                  <h2 className='text-lg mb-2 p-3 text-center text-myColor'>Find me a Home</h2>
-                  <img className='rounded-3xl p-4 ' src={proyecto1}  /> 
-                </div>
+                </motion.div>
 
-                <div className='text-myColor dark:bg-dayColor bg-darkColor hover:scale-125 transition-all duration-300  w-64 h-72 min-w-min p-2 m-2 rounded-lg'> 
-                  <h2 className='text-lg mb-2 p-3 text-center text-myColor'>GamePedia</h2>
-                  <img className='rounded-3xl p-4 ' src={proyecto1}  /> 
-                </div>
 
 
 
@@ -627,7 +626,7 @@ function App() {
 
   
 
-    </div>
+    </motion.div>
   
 
 
