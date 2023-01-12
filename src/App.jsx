@@ -13,11 +13,20 @@ import {
 }from "react-icons/fa";
 import { 
     BsFillMoonStarsFill,
+    BsLinkedin,
+    BsInstagram,
+    BsGithub
    } from "react-icons/bs";
 
 import { 
     GiSunglasses,
    } from "react-icons/gi";
+import { 
+  AiOutlineArrowDown,
+   } from "react-icons/ai";
+import { 
+  DiGit,
+   } from "react-icons/di";
 
 import { 
   SiRedux,
@@ -34,18 +43,18 @@ import {
   IoLogoNodejs,
   IoLogoJavascript,
   IoLogoHtml5,
+  IoMdMail,
  } from "react-icons/io";
 
 import { 
   IoLogoReact,
  } from "react-icons/io5";
 
-
-
-
+ localStorage.setItem("dark", false);
 
 function App() {
 
+  
 
   const useIsSmall = () => useMediaQuery('(min-width: 480px)');
   const [pIsOpen, setPIsOpen] = useState(false);
@@ -53,11 +62,21 @@ function App() {
   const isSmall = useIsSmall()
   const [isOpen ,setIsOpen] = useState(false);
   const toggle = () => setIsOpen (!isOpen);
-  const [darkMode, setdarkMode] = useState(false)
+  const [darkMode, setdarkMode] =  useState(localStorage.getItem('dark'));
   const [leng, setleng] = useState(false)
   const animation = useAnimation();
   const {ref, inView} = useInView();
 
+  function dark (){
+
+ setdarkMode(!darkMode);
+
+  }
+
+
+  useEffect(()=>{
+
+  },[, darkMode]);
 
   useEffect(()=>{
 
@@ -77,11 +96,11 @@ function App() {
       })
     }
 
-  },[inView]);
+  },[inView,]);
 
   return (
 
-    <motion.div layout className={darkMode? "dark" : ""}>
+    <motion.div layout className={darkMode ? "dark" : ""}>
 
       {
         leng?
@@ -108,7 +127,7 @@ function App() {
           </ul>
           <ul className='ml-8'> 
             <li className='flex'>
-                <button onClick={()=> setdarkMode(!darkMode)} className='hover:scale-105 transition-all dark:text-darkColor bg-myColor p-2 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '>
+                <button onClick={()=> localStorage.setItem("dark", !darkMode)} className='hover:scale-105 transition-all dark:text-darkColor bg-myColor p-2 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '>
             <BsFillMoonStarsFill/>
             </button>
     
@@ -244,7 +263,7 @@ function App() {
   
               <Link 
   
-              to="proyectos" spy={true} smooth={true} offset={-5} duration={500}
+              to="contacto" spy={true} smooth={true} offset={-5} duration={500}
   
               className=' hover:drop-shadow-xl text-sm  shadow-darkColor hover:scale-125 transition-all mr-12 max-sm:mr-16 hover:cursor-pointer rounded-lg h-10  text-darkColor dark:text-dayColor'>Contact</Link>
               
@@ -255,7 +274,7 @@ function App() {
       
             
               
-                  <a onClick={()=> setdarkMode(!darkMode)} className='hover:scale-105 max-sm:absolute mt max-sm:top-2 max-sm:right-9 transition-all dark:text-dayColor  hover:cursor-pointer  max-sm:h-6 max-sm:w-6 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 text-darkColor shadow-md hover:shadow-lg   '>
+                  <a onClick={dark} className='hover:scale-105 max-sm:absolute mt max-sm:top-2 max-sm:right-9 transition-all dark:text-dayColor  hover:cursor-pointer  max-sm:h-6 max-sm:w-6 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 text-darkColor shadow-md hover:shadow-lg   '>
               <BsFillMoonStarsFill/>
               </a>
       
@@ -309,7 +328,7 @@ function App() {
             opacity:1
           }}
 
-          className="backdrop-contrast-75 flex flex-col gap-3  dark:shadow-dayColor backdrop-blur-md shadow-darkColor shadow-md rounded-md border-l-2 z-10 fixed top-0 right-0 text-4xl text-darkColor dark:text-dayColor"
+          className="backdrop-contrast-75 flex flex-col gap-3  dark:shadow-dayColor backdrop-blur-md brightness-150 shadow-darkColor shadow-md rounded-md border-l-2 z-10 fixed top-0 right-0 text-4xl text-darkColor dark:text-dayColor"
 
           >
 
@@ -354,7 +373,7 @@ function App() {
           <Link
 
           onClick={()=>setIsOpen(false)}
-          to="contact" spy={true} smooth={true} offset={-50} duration={500}
+          to="contacto" spy={true} smooth={true} offset={-50} duration={500}
           className='text-lg border-b-2'>
           Contact
           </Link>
@@ -364,7 +383,7 @@ function App() {
 
           <ul className='mt-4 p-0 flex justify-center' >
 
-                <a onClick={()=> setdarkMode(!darkMode)} className='hover:scale-105 mx-5 transition-all   hover:cursor-pointer  max-sm:h-8 max-sm:w-8 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 dark:text-darkColor shadow-md hover:shadow-lg  dark:hover:text-dayColor '>
+                <a onClick={()=> setdarkMode(!darkMode)} className='hover:scale-105 mx-5 transition-all   hover:cursor-pointer  max-sm:h-8 max-sm:w-8 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 dark:text-dayColor shadow-md hover:shadow-lg  dark:hover:text-dayColor '>
                   <BsFillMoonStarsFill/>
                 </a>
 
@@ -537,8 +556,6 @@ function App() {
 
        {/* about y skills */}
 
-
-    
       <motion.div 
       
       id='about'
@@ -555,7 +572,7 @@ function App() {
 
                 <div className='w-7/12 rounded-3xl p-3 max-sm:w-auto max-sm:flex flex-wrap'>
 
-                  <div className='   hover:scale-110 transition-all max-sm:m-0 m-5 mb-11 mt-0 rounded-xl'>
+                  <div className='   hover:scale-110 transition-all max-sm:m-0 m-5 pt-3 mb-11 mt-0 rounded-xl'>
 
                       <h1 className='max-sm:text-sm flex justify-center pt-0 p-7 rounded-lg text-darkColor dark:text-dayColor'>Hola! Soy Mauricio</h1>
 
@@ -582,11 +599,12 @@ function App() {
 
                   {/* skillset */}
 
-                  <div className=' flex flex-wrap justify-center w-auto text-darkColor gap-5 border-l-4 mx-4 px-4' >
+                  <div className=' flex flex-wrap justify-center w-auto text-darkColor pt-3 gap-5 border-l-4 mx-4 px-4' >
 
-                    <h2 className='flex w-4/5 text-3xl justify-center hover:scale-105 transition-all rounded-lg  text-darkColor dark:text-dayColor '>My skillSet</h2>
+                    <h2 className='flex w-4/5 text-3xl justify-center hover:scale-105 transition-all rounded-lg  text-darkColor dark:text-dayColor '>My SkillSet</h2>
 
                       <IoLogoJavascript className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor' />
+                      <DiGit className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor' />
                       <IoLogoReact className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
                       <IoLogoNodejs className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
                       <IoLogoHtml5 className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
@@ -674,6 +692,7 @@ function App() {
                       <div className='flex justify-center flex-wrap j gap-5 m-7 '>
                         <IoLogoJavascript className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1  rounded-md bg-dayColor dark:bg-darkColor'/> 
                         <IoLogoReact className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+                        <DiGit className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
                         <IoLogoNodejs className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
                         <SiPostgresql className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
                         <SiRedux className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/>                                          
@@ -868,7 +887,81 @@ function App() {
 
         {/* contacto */}
 
+      <div
       
+      id='contacto'
+      className='flex flex-col justify-center w-screen'>
+
+      <h1 className='hover:scale-105 max-sm:flex-col max-sm:text-center transition-all flex text-4xl font-semibold justify border-b-2 pb-0  text-darkColor dark:text-dayColor justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor mb-8' >Contact</h1>
+                    
+      <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor'>If you have any idea, proposal or just want to contact me, do not hesitate to contact me</h3>
+      <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor pb-8 border-b-2'>I will be more than happy to answer your messages as soon as I can!</h3>
+      <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor'>You can reach me through</h3>
+      <AiOutlineArrowDown className="self-center animate-bounce transition-all m-5 text-6xl text-darkColor dark:text-dayColor"/>
+
+                    <div className='flex flex-row m-8 justify-evenly'>
+
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mauricio-jara-web/">
+                                      <BsLinkedin className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                  </a>
+                  <a target="_blank" rel="noopener noreferrer" href="mailto:mauri13jarita@gmail.com">
+                                      <IoMdMail className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                  </a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/MauriJara312">
+                                      <BsGithub className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                  </a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mauri_jara312/">
+                                      <BsInstagram className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                  </a>
+
+                  </div>
+
+        
+
+
+      </div>
+
+
+      {/* footer */}
+
+      <div className='w-screen flex-col text-center flex bg-darkColor p-10 dark:bg-dayColor'>
+                  
+
+                 
+
+                  <div className='w-auto p-9 flex justify-center  text-center gap-5'>
+                    
+
+
+                  <Link 
+  
+                    to="/" spy={true} smooth={true} offset={-5} duration={500}
+
+                    className=' text-lg border-b-2  shadow-darkColor hover:cursor-pointer   dark:text-darkColor text-dayColor'>Home</Link>
+                    <Link 
+
+                    to="about" spy={true} smooth={true} offset={-5} duration={500}
+
+                    className=' text-lg border-b-2  shadow-darkColor hover:cursor-pointer   dark:text-darkColor text-dayColor'>About</Link>
+                    <Link 
+
+                    to="proyectos" spy={true} smooth={true} offset={-5} duration={500}
+
+                    className=' text-lg border-b-2  shadow-darkColor hover:cursor-pointer dark:text-darkColor text-dayColor'>Proyects</Link>    
+                    
+                    
+
+                  </div>
+
+                  <div className='justify-center flex'>
+
+                  <GiSunglasses className=' flex  w-14 h-14 text-darkColor p-1 dark:text-dayColor dark:bg-darkColor rounded-full bg-dayColor  hover:scale-110 transition-all'/>
+
+                  </div>
+   
+
+
+      </div>
     
       </div>
       
