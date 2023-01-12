@@ -11,8 +11,15 @@ module.exports = {
       //og dark color #272343
       //ogmycolor #6246ea
       myColor : "#6246ea",
-      dayColor : "#bae8e8",
-      darkColor: "#272343",
+      dayColor : "#90b4ce",
+      darkColor: "#181818",
+
+
+      ///////////////////opcion de dos colores
+
+      // day:#90b4ce
+      // dark:#181818
+
     },
     extend: {},
   },
