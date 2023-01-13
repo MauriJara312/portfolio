@@ -50,34 +50,78 @@ import {
   IoLogoReact,
  } from "react-icons/io5";
 
- localStorage.setItem("dark", false);
 
 function App() {
 
-  
-
   const useIsSmall = () => useMediaQuery('(min-width: 480px)');
   const [pIsOpen, setPIsOpen] = useState(false);
-  const [id,setId] = useState(0)
   const isSmall = useIsSmall()
   const [isOpen ,setIsOpen] = useState(false);
   const toggle = () => setIsOpen (!isOpen);
-  const [darkMode, setdarkMode] =  useState(localStorage.getItem('dark'));
-  const [leng, setleng] = useState(false)
+  const [darkMode, setdarkMode] =  useState(localStorage.getItem('dark')||false);
+  const [leng, setleng] = useState(localStorage.getItem('leng')||false);
   const animation = useAnimation();
   const {ref, inView} = useInView();
 
-  function dark (){
+  
+  const dark = () =>{
 
- setdarkMode(!darkMode);
+    
+    setdarkMode(!darkMode)
+    localStorage.setItem("dark",!darkMode)
 
   }
 
+  
+  function lengg (){ 
+
+   
+    setleng(!leng)
+    localStorage.setItem("leng",!leng)
+  }
 
   useEffect(()=>{
 
-  },[, darkMode]);
+    
 
+    if(localStorage){
+
+      if(localStorage.getItem("dark")===true){
+        setdarkMode(true)
+      }
+      if(localStorage.getItem("dark")===false){
+        setdarkMode(false)
+      }
+
+    }else{
+      setdarkMode("true");
+      setleng(true)
+    }
+
+  },[]);
+  
+  useEffect(()=>{
+
+    
+
+    if(localStorage){
+
+      if(localStorage.getItem("leng")===true){
+        setleng(true)
+      }
+      if(localStorage.getItem("leng")===false){
+        setleng(false)
+      }
+
+    }else{
+      setdarkMode("true");
+      setleng(true)
+    }
+
+  },[]);
+
+
+  
   useEffect(()=>{
 
     if(inView){
@@ -96,114 +140,612 @@ function App() {
       })
     }
 
-  },[inView,]);
+  },[inView]);
 
   return (
 
     <motion.div layout className={darkMode ? "dark" : ""}>
 
       {
-        leng?
+        leng ?
 
        ///////////////////////////////////////////////////spanish///////////////////////////////////////////////////////////////////////////
 
-        <div className='bg-dayColor min-h-screen transition-colors duration-500 dark:transition-colors dark:duration-500 just columns-1 dark:bg-darkColor'> 
+       <div 
 
-        {/* navbar */}
+       id='/'
+       
+       className='bg-dayColor min-h-screen sm:max-w-full pt-14 transition-colors duration-500 dark:transition-colors dark:duration-500 just columns-1 dark:bg-darkColor overflow-hidden'> 
+       
 
-        <nav className='flex p-3 justify-evenly text-opacity-95 font-semibolds my text-2xl mt-5'>
-          <ul >
-    
-            <button className='dark:hover:text-dayColor hover:scale-125 transition-all   text-myColor hover:text-darkColor '>
-              CV
-            </button>
+
+
+
+       {/* navbar */}
+
+       {
+
+         isSmall?
+       
+         <motion.nav 
+       
+         initial={{
+           opacity:0
+         }}
+     
+         transition={{
+           duration:0.5,
+           delay:3.25
+         }}
+         
+         animate={{ 
+         opacity: 1,
+       }}
+     
+         className='flex fixed top-0 right-0 mb-0 backdrop-contrast-75 backdrop-blur-sm rounded-md z-10 h-12 max-sm:h-10 p-3 mt-0 text-opacity-95 font-semibolds text-base'>
+ 
+             <Link 
+ 
+             to="/" spy={true} smooth={true} offset={-5} duration={500}
+ 
+             className=' hover:drop-shadow-xl text-sm  shadow-darkColor hover:scale-125 transition-all mr-12 max-sm:mr-4 hover:cursor-pointer rounded-lg h-10  text-darkColor dark:text-dayColor'>Home</Link>
+             <Link 
+ 
+             to="about" spy={true} smooth={true} offset={-5} duration={500}
+ 
+             className=' hover:drop-shadow-xl text-sm  shadow-darkColor hover:scale-125 transition-all mr-12 max-sm:mr-4 hover:cursor-pointer rounded-lg h-10  text-darkColor dark:text-dayColor'>Información</Link>
+             <Link 
+ 
+             to="proyectos" spy={true} smooth={true} offset={-5} duration={500}
+ 
+             className=' hover:drop-shadow-xl text-sm  shadow-darkColor hover:scale-125 transition-all mr-12 max-sm:mr-4 hover:cursor-pointer rounded-lg h-10  text-darkColor dark:text-dayColor'>Proyectos</Link>
+ 
+             <Link 
+ 
+             to="contacto" spy={true} smooth={true} offset={-5} duration={500}
+ 
+             className=' hover:drop-shadow-xl text-sm  shadow-darkColor hover:scale-125 transition-all mr-12 max-sm:mr-16 hover:cursor-pointer rounded-lg h-10  text-darkColor dark:text-dayColor'>Contacto</Link>
+             
+     
+             {/* <button className=' hover:drop-shadow-xl  hover:shadow-lg shadow-myColor hover:scale-105 transition-all mx-5 px-4 border-t-4 border-l-4 mr-24 rounded-lg  text-myColor h-10  '>
+               Download Resume 📥
+             </button>              */}
+     
            
-          </ul>
-          <ul className=' dark:hover:text-dayColor hover:scale-125 transition-all  text-myColor hover:text-darkColor '>
-            Skills
-          </ul>
-          <ul className='dark:hover:text-dayColor hover:scale-125 transition-all  text-myColor hover:text-darkColor'>
-            Contacto
-          </ul>
-          <ul className='ml-8'> 
-            <li className='flex'>
-                <button onClick={()=> localStorage.setItem("dark", !darkMode)} className='hover:scale-105 transition-all dark:text-darkColor bg-myColor p-2 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '>
-            <BsFillMoonStarsFill/>
-            </button>
-    
-    
-    {/* IDIOMA------------------------- */}
-    
-        {
-          leng ? 
-                  <button >
-            <img src={spanish} alt="spanish" onClick={()=> setleng(!leng)} className='hover:scale-105 transition-all dark:text-darkColor bg-myColor p-2 m-2 w-12 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor ' />
-            </button>
-          :
-          <button >
-          <img src={english} alt="spanish" onClick={()=> setleng(!leng)} className='dark:text-darkColor bg-myColor p-2 m-2 w-12 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor ' />
-          </button>
-        }
-    
-    
-    
-    
-    {/* IDIOMA------------------------- */}
-    
-    
-            </li>
+             
+                 <a onClick={dark} className='hover:scale-105 max-sm:absolute mt max-sm:top-2 max-sm:right-9 transition-all dark:text-dayColor  hover:cursor-pointer  max-sm:h-6 max-sm:w-6 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 text-darkColor shadow-md hover:shadow-lg   '>
+             <BsFillMoonStarsFill/>
+             </a>
+     
+     
+     {/* IDIOMA------------------------- */}
+     
+         {
+           leng ? 
+                   <button >
+             <img src={spanish} alt="spanish" onClick={lengg} className='max-sm:absolute max-sm:top-2 max-sm:right-2 hover:scale-105 hover:cursor-pointer transition-all dark:text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-2 w-8 h-8 max-sm:mr-0 max-sm:h-6 max-sm:w-6 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:hover:text-dayColor ' />
+             </button>
+           :
+           <a >
+           <img src={english} alt="english" onClick={lengg} className='max-sm:absolute max-sm:top-2 max-sm:right-2 hover:scale-105 hover:cursor-pointer transition-all dark:text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-2 w-8 h-8 max-sm:mr-0 max-sm:h-6 max-sm:w-6 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:hover:text-dayColor ' />
+           </a>
+         }
+     
+     
+     
+     
+     {/* IDIOMA------------------------- */}
+     
+     
+            
+           
+           
+         </motion.nav>
+
+         :
+         
+         // mobile
+
+         <motion.div >
+
+         <motion.div
+
+         layout transition={{layout:{duration:0.5,type:"spring"},
+         
+         delay:3
+         
+       
+       }}
+
+         initial={{
+           opacity:0
+         }}
+
+
+
+         animate={{
+           opacity:1
+         }}
+
+         className="backdrop-contrast-75 flex flex-col gap-3  dark:shadow-dayColor backdrop-blur-md brightness-150 shadow-darkColor shadow-md rounded-md border-l-2 z-10 fixed top-0 right-0 text-4xl text-darkColor dark:text-dayColor"
+
+         >
+
+         <FaBars  className=  "w-auto fixed top-1 right-1" onClick={toggle}/>
+
+         {
+           isOpen &&(
+
+
+        <motion.div className='gap-6 m-4'>
+
+         <motion.h1 className="text-xl mb-5" >Menu</motion.h1>
+
+         <motion.div  className='flex flex-col justify-center text-center gap-2'>
+         <Link
+
+         onClick={()=>setIsOpen(false)}
+         to="/" spy={true} smooth={true} offset={-50} duration={500}
+         className=' text-lg border-b-2'>
+         Home
+         </Link>
+
+
+         <Link 
+
+         onClick={()=>setIsOpen(false)}
+         to="about" spy={true} smooth={true} offset={-0} duration={500}
+         className='text-lg border-b-2'>
+         Información
+         </Link>
+
+
+         <Link
+
+         onClick={()=>setIsOpen(false)}
+         to="proyectos" spy={true} smooth={true} offset={-50} duration={500}
+         className='text-lg border-b-2'>
+         Proyectos
+         </Link>
+
+
+         <Link
+
+         onClick={()=>setIsOpen(false)}
+         to="contacto" spy={true} smooth={true} offset={-50} duration={500}
+         className='text-lg border-b-2'>
+         Contacto
+         </Link>
+         </motion.div>
+
+
+
+         <ul className='mt-4 p-0 flex justify-center' >
+
+               <a onClick={()=> setdarkMode(!darkMode)} className='hover:scale-105 mx-5 transition-all   hover:cursor-pointer  max-sm:h-8 max-sm:w-8 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 dark:text-dayColor shadow-md hover:shadow-lg  dark:hover:text-dayColor '>
+                 <BsFillMoonStarsFill/>
+               </a>
+
+
+               {
+                     leng ? 
+
+                     <a >
+                     <img src={spanish} alt="spanish" onClick={()=> setleng(!leng)} className='  hover:scale-105 hover:cursor-pointer transition-all  hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-5 w-8 h-8  max-sm:h-8 max-sm:w-8 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:text-dayColor ' />
+                     </a>
+
+                     :
+
+                     <a >
+                     <img src={english} alt="english" onClick={()=> setleng(!leng)} className='  hover:scale-105 hover:cursor-pointer transition-all  hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-5 w-8 h-8  max-sm:h-8 max-sm:w-8 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:text-dayColor ' />
+                     </a>
+               }
+
+         </ul>
+
+         </motion.div>
+         
+           )} 
+
+         </motion.div>
+
+         </motion.div>
+
+
+       }
+
+
+       
+
+
+       {/* titulo */}
+   
+       <div className='w-screen flex flex-col max-sm:mt-1 mb-16 '>
+
+   
+       <motion.div 
+
+       initial={{opacity:0}}
+
+       transition={{
+         duration:0.3,
+         delay:0
+       }}
+       
+       animate={{
+         opacity:1
+         }}
+         
+       
+
+       className='bg-fixed shadow-2xl shadow-darkColor flex flex-col bg-cover bg-[url("https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")]'>
+
+       
+
+       <motion.h1
+         
+         animate={isSmall?
+           {
+           y:-35,
+           x: -450,
+           }
+         :
+         {
+           x:-90,
+           y:-55
+         }
+         }
+
+           transition={{
+             duration:2,
+             delay:0.5
+           }}
+         
+         className=' mt-16 px-16 max-sm:text-2xl border-t-4 text-6xl rounded-md border-r-4 font-semibolds w-auto text-center p-5 text-dayColor' >Mauricio Jara</motion.h1>
+   
+           <motion.h3 
+           initial={{
+             scale:0
+           }}
+
+           transition={{
+             type: "spring",
+             bounce:0.3,
+             duration:0.5,
+             delay:2.25,
+             
+           }}
+           
+           animate={{ 
+           scale: 1,
+
+
+         }}
+           className=' text-center max-sm:text-base text-4xl text-dayColor ' >Mantenlo simple</motion.h3>
+
+          <motion.h1 
           
-          </ul>
-        </nav>
-    
-        {/* titulo */}
+          animate={isSmall?
+           {
+           x: 300,
+           y:35
+           }
+         :
+           {
+             x:70,
+             y:55
+           }
+       }
 
-        <div className='pt-9 mb-32'>
-    
-            <h1 className='mb-5 bg-darkColor rounded-lg dark:bg-dayColor  text-6xl font-semibolds w-4/6 text-right p-1 text-myColor' >Mauricio Jara</h1>
-    
-            {/* <h3 className='text-center p-5 text-4xl text-myColor' >Keep it simple</h3> */}
-
-           <h2 className='bg-darkColor rounded-lg dark:bg-dayColor w-4/6 translate-x-96 delay-300 duration-1000 text-4xl font-semibolds text-center p-2 text-myColor justify-end'>Full Stack Web Developer</h2>
-
-
-        </div>
-
-        {/* skills */}
-
-        <div>
-
-
-           <h1 className='text-5xl font-mono flex justify-center py-6 text-myColor bg-darkColor bg-gradient-to-tr from-darkColor to-dayColor dark:bg-gradient-to-tr dark:from-dayColor dark:to-darkColor mb-28' >Habilidades</h1>
-
-            <div className='mb-32 flex flex-wrap justify-center w-auto gap-10 p-14 px-52' >
-            <IoLogoJavascript className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor' />
-            <IoLogoReact className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-            <IoLogoNodejs className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-            <IoLogoHtml5 className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-            <SiCss3 className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-            <SiRedux className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-            <SiTailwindcss className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-            <SiPostgresql className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-            <SiExpress className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-            <SiRailway className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor '/>
-            <SiVercel className='hover:scale-105 transition-all dark:text-darkColor bg-myColor w-28 h-40 min-w-min p-7 m-2 rounded-lg text-dayColor hover:text-darkColor dark:hover:text-dayColor ' />
-
-            </div>
+           transition={{
+             duration:2,
+             delay:0.5
+           }}
           
-    
-        </div>
+          className='mb-16 border-b-4 max-sm:text-base border-l-4 text-5xl rounded-md font-semibolds text-center w-auto  p-5 text-dayColor justify-end'>
+          Desarrollador Full Stack 
+          </motion.h1>
+  
 
-          {/* proyectos */}
+       </motion.div>
+
+
+           {/* imagen */}
+
+           <motion.div
+
+           className='flex justify-center mt-20 bg-darkColor dark:bg-dayColor rounded-full w-48 h-48 '
+
+           initial={{
+             scale:0
+           }}
+
+           transition={{
+             type: "spring",
+             bounce:0.3,
+             duration:2,
+             delay:4,
+             
+           }}
+
+           animate={isSmall?
+             { 
+             x:600,
+             y:-50,
+           scale: 1,
+             }
+             :
+             {
+               x:110,
+               y:-50,
+               scale: 1
+             }
+           }
+           >
+
+           <GiSunglasses className='text-9xl mt-5 text-dayColor dark:text-darkColor '/>
+
+           </motion.div>
+
+            
+
+       </div>
+
+
+
+      {/* about y skills */}
+
+     <motion.div 
+     
+     id='about'
+     
+     className='w-screen mb-6'
+     
+           animate={animation}
+
+     >
+
+         <h1 className='hover:scale-105 transition-all flex text-4xl font-semibold  border-b-2 m-0 pb-0 w-screen text-darkColor dark:text-dayColor  justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor   dark:shadow-dayColor  b-8' >Información</h1>
+
+           <div ref={ref} className='max-sm:p-0 max-sm:flex-col  w-auto flex'>
+
+               <div className='w-7/12 rounded-3xl p-3 max-sm:w-auto max-sm:flex flex-wrap'>
+
+                 <div className='   hover:scale-110 transition-all max-sm:m-0 m-5 pt-3 mb-11 mt-0 rounded-xl'>
+
+                     <h1 className='max-sm:text-sm flex justify-center pt-0 p-7 rounded-lg text-darkColor dark:text-dayColor'>Hola! Soy Mauricio</h1>
+
+                     <p className='max-sm:text-sm text-sm  block text-center  text-darkColor dark:text-dayColor'>Desarrollador web full stack</p>
+
+                     <p className=' max-sm:text-sm text-sm inline-block text-center px-7 pt-7 text-darkColor dark:text-dayColor '>Siempre sentí curiosisdad por el mundo IT y tras varios años de aprendizaje autodidacta me gradué del bootcamp full stack web developer de soyHenry.
+
+                     </p>
+
+                     <p className=' max-sm:text-sm text-sm inline-block text-center px-7 pt-7 text-darkColor dark:text-dayColor '>
+                     Con mucha capacidad para integrar equipos y con alto nivel de inglés estoy listo para cualquier desafío que quieras proponerme. Siempre listo para mi proxima experiencia 😁</p>
+
+               </div>
+
+                     {/* carrousel */}
+
+                     <Carrusel/>
+
+
+
+               </div>
+
+
+
+                 {/* skillset */}
+
+                 <div className=' flex flex-wrap justify-center w-auto text-darkColor pt-3 gap-5 border-l-4 mx-4 px-4' >
+
+                   <h2 className='flex w-4/5 text-3xl justify-center hover:scale-105 transition-all rounded-lg  text-darkColor dark:text-dayColor '>Habilidades</h2>
+
+                     <IoLogoJavascript className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor' />
+                     <DiGit className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor' />
+                     <IoLogoReact className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
+                     <IoLogoNodejs className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
+                     <IoLogoHtml5 className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
+                     <SiCss3 className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
+                     <SiRedux className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
+                     <SiTailwindcss className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
+                     <SiPostgresql className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
+                     <SiExpress className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
+                     <SiRailway className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor '/>
+                     <SiVercel className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor ' />
+
+                 </div>
+
+           </div>
+
+
+     </motion.div>
+
+       {/* proyectos */}
+
+       <motion.div 
+       
+       id='proyectos'
+
+       className='flex flex-col w-screen'
+     
       
-        <div>
 
-        <h1 className='text-5xl font-mono flex justify-center py-6 text-myColor bg-darkColor bg-gradient-to-tr from-darkColor to-dayColor dark:bg-gradient-to-tr dark:from-dayColor dark:to-darkColor mb-28' >Proyectos</h1>
+       >
 
-        </div>
+       <h1 className='hover:scale-105 max-sm:flex-col max-sm:text-center transition-all flex text-4xl font-semibold justify border-b-2 pb-0  text-darkColor dark:text-dayColor justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor mb-8' >Proyectos</h1>
 
-      
-        </div>
+       {/* //cards proyectos// */}
+
+       <div className='mb-32 flex max-sm:flex-col flex-wrap justify-center w-auto gap-10 p-14 '>
+
+               <motion.div 
+
+
+               transition={{layout:{duration:1,type:"spring"}}}
+
+               layout
+               
+               onClick={()=>(setPIsOpen(!pIsOpen))}      
+               
+               
+               className='flex max-sm:flex-col text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+
+                 <div className='max-sm:flex-col'>
+
+                  <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Find me a Home</motion.h2>
+                 <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto1}  />
+
+                 </div>
+
+
+
+                 {
+                   pIsOpen && (
+                     <div>
+                     <motion.div 
+                     
+                     initial={{
+                       opacity:0
+                     }}  
+
+                     transition={{
+                       duration:1
+                     }}
+
+                     animate={{
+                       opacity:1
+                     }}
+                     
+                     className=' p-5 mt-5 flex flex-col max-sm:flex-col text-center '>
+                       <p className='m-1 text-dayColor dark:text-darkColor'>Aplicación desarrollada econ metodología SCRUM junto a otros 8 desarrolladores.</p>
+
+                       <p className='m-1 text-dayColor dark:text-darkColor'>Su objetivo es el de conectar a personas con refugios de animales.</p>
+
+                       <p className='m-1 text-dayColor dark:text-darkColor'>También cuenta con un apartado e-commerce orientado a los animales</p>
+
+
+                     </motion.div>
+
+                     <div className='flex justify-center flex-wrap j gap-5 m-7 '>
+                       <IoLogoJavascript className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1  rounded-md bg-dayColor dark:bg-darkColor'/> 
+                       <IoLogoReact className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+                       <DiGit className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+                       <IoLogoNodejs className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+                       <SiPostgresql className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+                       <SiRedux className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/>                                          
+                       <IoLogoHtml5 className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+                       <SiExpress className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+                       <SiCss3 className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/>
+                     </div>
+
+
+
+                     <div className='flex flex-row justify-evenly p-6 m-3 '>
+                     <a className='rounded-md bg-dayColor dark:bg-darkColor text-darkColor dark:text-dayColor text-lg p-1' href="https://proyecto-final-6jxzmv8cc-carolinambb.vercel.app/">Deploy</a>
+                     <a className='rounded-md bg-dayColor dark:bg-darkColor text-darkColor dark:text-dayColor text-lg p-1' href="https://github.com/Carolinambb/proyecto-final">Codigo</a>
+                     </div>
+
+                     </div>
+
+
+                     
+
+
+                   )
+                 } 
+
+               
+
+
+               </motion.div>
+
+
+       </div>
+
+       </motion.div>
+
+
+       {/* contacto */}
+
+     <div
+     
+     id='contacto'
+     className='flex flex-col justify-center w-screen shadow-xl shadow-dakColor dark:shadow-dayColor'>
+
+     <h1 className='hover:scale-105 max-sm:flex-col max-sm:text-center transition-all flex text-4xl font-semibold justify border-b-2 pb-0  text-darkColor dark:text-dayColor justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor mb-8' >Contacto</h1>
+                   
+     <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor'>Si tenés alguna idea, propuesta o siemplemente querés contactarme, no lo dudes y escribime</h3>
+     <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor pb-8 border-b-2'>estaré mas que feliz de contestarte tan pronto como me sea posible!</h3>
+     <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor'>Podés contactarme a través de</h3>
+     <AiOutlineArrowDown className="self-center animate-bounce transition-all m-5 text-6xl text-darkColor dark:text-dayColor"/>
+
+                   <div className='flex flex-row m-8 justify-evenly'>
+
+                 <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mauricio-jara-web/">
+                                     <BsLinkedin className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                 </a>
+                 <a target="_blank" rel="noopener noreferrer" href="mailto:mauri13jarita@gmail.com">
+                                     <IoMdMail className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                 </a>
+                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/MauriJara312">
+                                     <BsGithub className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                 </a>
+                 <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mauri_jara312/">
+                                     <BsInstagram className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                 </a>
+
+                 </div>
+
+       
+
+
+     </div>
+
+
+     {/* footer */}
+
+     <div className='w-screen flex-col text-center flex bg-darkColor p-10 dark:bg-dayColor'>
+                 
+
+                
+
+                 <div className='w-auto p-9 flex justify-center  text-center gap-5'>
+                   
+
+
+                 <Link 
+ 
+                   to="/" spy={true} smooth={true} offset={-5} duration={500}
+
+                   className=' text-lg border-b-2  shadow-darkColor hover:cursor-pointer   dark:text-darkColor text-dayColor'>Home</Link>
+                   <Link 
+
+                   to="about" spy={true} smooth={true} offset={-5} duration={500}
+
+                   className=' text-lg border-b-2  shadow-darkColor hover:cursor-pointer   dark:text-darkColor text-dayColor'>Información</Link>
+                   <Link 
+
+                   to="proyectos" spy={true} smooth={true} offset={-5} duration={500}
+
+                   className=' text-lg border-b-2  shadow-darkColor hover:cursor-pointer dark:text-darkColor text-dayColor'>Proyectos</Link>    
+                   
+                   
+
+                 </div>
+
+                 <div className='justify-center flex'>
+
+                 <GiSunglasses className=' flex  w-14 h-14 text-darkColor p-1 dark:text-dayColor dark:bg-darkColor rounded-full bg-dayColor  hover:scale-110 transition-all'/>
+
+                 </div>
+  
+
+
+     </div>
+   
+      </div>
 
         :
       
@@ -284,11 +826,11 @@ function App() {
           {
             leng ? 
                     <button >
-              <img src={spanish} alt="spanish" onClick={()=> setleng(!leng)} className='max-sm:absolute max-sm:top-2 max-sm:right-2 hover:scale-105 hover:cursor-pointer transition-all dark:text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-2 w-8 h-8 max-sm:mr-0 max-sm:h-6 max-sm:w-6 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:hover:text-dayColor ' />
+              <img src={spanish} onClick={lengg} alt="spanish" className='max-sm:absolute max-sm:top-2 max-sm:right-2 hover:scale-105 hover:cursor-pointer transition-all dark:text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-2 w-8 h-8 max-sm:mr-0 max-sm:h-6 max-sm:w-6 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:hover:text-dayColor ' />
               </button>
             :
             <a >
-            <img src={english} alt="english" onClick={()=> setleng(!leng)} className='max-sm:absolute max-sm:top-2 max-sm:right-2 hover:scale-105 hover:cursor-pointer transition-all dark:text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-2 w-8 h-8 max-sm:mr-0 max-sm:h-6 max-sm:w-6 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:hover:text-dayColor ' />
+            <img src={english} onClick={lengg} alt="english" className='max-sm:absolute max-sm:top-2 max-sm:right-2 hover:scale-105 hover:cursor-pointer transition-all dark:text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-2 w-8 h-8 max-sm:mr-0 max-sm:h-6 max-sm:w-6 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:hover:text-dayColor ' />
             </a>
           }
       
@@ -392,13 +934,13 @@ function App() {
                       leng ? 
 
                       <a >
-                      <img src={spanish} alt="spanish" onClick={()=> setleng(!leng)} className='hover:scale-105 mx-5 transition-all hover:cursor-pointer  dark:text-darkColor bg-myColor p-2  w-12 rounded-lg text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-myColor hover:text-darkColor dark:hover:text-dayColor ' />
+                      <img src={spanish} onClick={lengg} alt="spanish"  className='hover:scale-105 mx-5 transition-all hover:cursor-pointer  dark:text-darkColor bg-myColor p-2  w-12 rounded-lg text-dayColor hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-myColor hover:text-darkColor dark:hover:text-dayColor ' />
                       </a>
 
                       :
 
                       <a >
-                      <img src={english} alt="english" onClick={()=> setleng(!leng)} className='  hover:scale-105 hover:cursor-pointer transition-all  hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-5 w-8 h-8  max-sm:h-8 max-sm:w-8 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:text-dayColor ' />
+                      <img src={english} onClick={lengg} alt="english"  className='  hover:scale-105 hover:cursor-pointer transition-all  hover:drop-shadow-xl shadow-md hover:shadow-lg  p-1 mx-5 w-8 h-8  max-sm:h-8 max-sm:w-8 justify-center rounded-sm border-b-2 border-r-2 text-darkColor hover:text-darkColor dark:text-dayColor ' />
                       </a>
                 }
 
@@ -421,7 +963,7 @@ function App() {
 
         {/* titulo */}
     
-        <div className=' max-sm:mt-1 mb-16 '>
+        <div className='w-screen flex flex-col max-sm:mt-1 mb-16 '>
 
     
         <motion.div 
@@ -493,7 +1035,7 @@ function App() {
             }
           :
             {
-              x:90,
+              x:70,
               y:55
             }
         }
@@ -560,7 +1102,7 @@ function App() {
       
       id='about'
       
-      className='w-screen'
+      className='w-screen mb-6'
       
             animate={animation}
 
@@ -890,7 +1432,7 @@ function App() {
       <div
       
       id='contacto'
-      className='flex flex-col justify-center w-screen'>
+      className='flex flex-col justify-center w-screen shadow-xl shadow-dakColor dark:shadow-dayColor'>
 
       <h1 className='hover:scale-105 max-sm:flex-col max-sm:text-center transition-all flex text-4xl font-semibold justify border-b-2 pb-0  text-darkColor dark:text-dayColor justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor mb-8' >Contact</h1>
                     
@@ -963,9 +1505,7 @@ function App() {
 
       </div>
     
-      </div>
-      
-      
+      </div>      
       }
 
   
