@@ -24,8 +24,9 @@ import {useRef, useEffect, useState } from "react";
  
  
 
-function Carrusel( )  {
+function Carrusel(leng)  {
     
+    const lengg = useState(leng)
     const [width, setWidt] = useState(0);
     const carrusel = useRef();
 
@@ -36,6 +37,8 @@ function Carrusel( )  {
     }, [])
 
     return (
+
+
         <motion.div 
 
         className=" max-sm:w-screen   "
@@ -57,7 +60,7 @@ function Carrusel( )  {
         
         >
 
-            <motion.h3 className=' text-darkColor dark:text-dayColor dark:text-darkColor max-sm:text-base max-sm:block max-sm:text-center justify-center flex my-9 text-xl border-y-2 p-1 hover:scale-105 transition-all  '>Arrastra para saber un poco más de mi 🤠</motion.h3>
+            <motion.h3 className=' text-darkColor dark:text-dayColor  max-sm:text-base max-sm:block max-sm:text-center justify-center flex my-9 text-xl border-y-2 p-1 hover:scale-105 transition-all  '>Drag to know more about me 🤠</motion.h3>
 
 
             <motion.div 
@@ -86,42 +89,42 @@ function Carrusel( )  {
 
                     <FaHandshake className='self-center my-3 p-3 dark:mybg-myColordayColor bg-dayColor dark:text-dayColor dark:bg-darkColor  overflow-hidden rounded-full hover:animate-pulse w-16  h-16 '/>
                     
-                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Trabajador de grupo y empático</h3>
+                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Team Player</h3>
 
                     </motion.div>
 
                     <motion.div className="bg-darkColor max-sm:w-32 max-sm:h-56 rounded-xl w-40 flex flex-col dark:bg-dayColor ">
 
                     <SiTheconversation className='self-center my-3 p-3 dark:mybg-myColordayColor bg-dayColor dark:text-dayColor dark:bg-darkColor  overflow-hidden rounded-full hover:animate-pulse w-16  h-16 '/>
-                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Inglés conversacional</h3>
+                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >High english level</h3>
 
                     </motion.div>
 
                     <motion.div className="bg-darkColor max-sm:w-32 max-sm:h-56 rounded-xl w-40 flex flex-col dark:bg-dayColor  ">
 
                     <ImShrink2 className='self-center my-3 p-3 dark:mybg-myColordayColor bg-dayColor dark:text-dayColor dark:bg-darkColor  overflow-hidden rounded-full hover:animate-pulse w-16  h-16 '/>
-                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Diseño responsive</h3>
+                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Responsive design</h3>
 
                     </motion.div>
 
                     <motion.div className="bg-darkColor max-sm:w-32 max-sm:h-56 rounded-xl w-40 flex flex-col dark:bg-dayColor  ">
 
                     <FaRegLightbulb className='self-center my-3 p-3 dark:mybg-myColordayColor bg-dayColor dark:text-dayColor dark:bg-darkColor  overflow-hidden rounded-full hover:animate-pulse w-16  h-16 '/>
-                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Orientado a objetivos</h3>
+                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Goal-oriented</h3>
 
                     </motion.div>
 
                     <motion.div className="bg-darkColor max-sm:w-32 max-sm:h-56 rounded-xl w-40 flex flex-col dark:bg-dayColor ">
 
                     <RiTeamFill className='self-center my-3 p-3 dark:mybg-myColordayColor bg-dayColor dark:text-dayColor dark:bg-darkColor  overflow-hidden rounded-full hover:animate-pulse w-16  h-16 '/>
-                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Metodologías ágiles</h3>
+                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Agile methodologies</h3>
 
                     </motion.div>
 
                     <motion.div className="bg-darkColor max-sm:w-32 max-sm:h-56 rounded-xl w-40 flex flex-col dark:bg-dayColor ">
 
                     <FaUserGraduate className='self-center my-3 p-3 dark:mybg-myColordayColor bg-dayColor dark:text-dayColor dark:bg-darkColor  overflow-hidden rounded-full hover:animate-pulse w-16  h-16 '/>
-                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Aprendizaje rapido</h3>
+                    <h3 className="flex justify-center text-center px-8 pb-8 text-dayColor dark:text-darkColor font-semibold" >Fast learning</h3>
 
                     </motion.div>
 
@@ -156,6 +159,8 @@ function Carrusel( )  {
             </motion.div> */}
 
         </motion.div>
+
+
         )
 }
 
