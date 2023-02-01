@@ -3,6 +3,10 @@ import { useState,useRef, useEffect } from 'react';
 import spanish from "./assets/spanish.png"
 import english from "./assets/english.png"
 import proyecto1 from "./assets/proyecto1.jpeg"
+import proyecto2 from "./assets/proyecto2.png"
+import proyecto3 from "./assets/proyecto3.png"
+import muiIcon from "./assets/muiIcon.png"
+import logo from "./assets/logo.jpeg"
 import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 import { useMediaQuery } from './Hooks/size';
@@ -482,38 +486,38 @@ function App() {
 
             <motion.div
 
-            className='flex justify-center mt-20 bg-darkColor dark:bg-dayColor rounded-full w-48 h-48 '
+className='flex justify-center mt-20 bg-darkColor dark:bg-dayColor rounded-full w-48 h-48 '
 
-            initial={{
-              scale:0
-            }}
+initial={{
+  scale:0
+}}
 
-            transition={{
-              type: "spring",
-              bounce:0.3,
-              duration:2,
-              delay:4,
-              
-            }}
+transition={{
+  type: "spring",
+  bounce:0.3,
+  duration:2,
+  delay:4,
+  
+}}
 
-            animate={isSmall?
-              { 
-              x:600,
-              y:-50,
-            scale: 1,
-              }
-              :
-              {
-                x:110,
-                y:-50,
-                scale: 1
-              }
-            }
-            >
+animate={isSmall?
+  { 
+  x:600,
+  y:-50,
+scale: 1,
+  }
+  :
+  {
+    x:110,
+    y:-50,
+    scale: 1
+  }
+}
+>
 
-            <GiSunglasses className='text-9xl mt-5 text-dayColor dark:text-darkColor '/>
+<GiSunglasses className='text-9xl mt-5 text-dayColor dark:text-darkColor '/>
 
-            </motion.div>
+</motion.div>
 
              
 
@@ -784,6 +788,161 @@ animate={{
                   } 
 
                 
+
+
+                </motion.div>
+
+                <motion.div 
+
+
+transition={{layout:{duration:1,type:"spring"}}}
+
+layout
+
+onClick={()=>(setPIsOpen(!pIsOpen))}      
+
+
+className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+
+  <div className='max-sm:flex-col'>
+
+   <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Artist Web Page</motion.h2>
+  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto2}  />
+
+  </div>
+
+
+
+  {
+    pIsOpen && (
+      <div>
+      <motion.div 
+      
+      initial={{
+        opacity:0
+      }}  
+
+      transition={{
+        duration:1
+      }}
+
+      animate={{
+        opacity:1
+      }}
+      
+      className=' p-5 mt-5 flex flex-col max-sm:flex-col text-center '>
+
+        <p className='m-1 text-dayColor dark:text-darkColor'>Its objective is to give the user access to the artist's work.</p>
+
+        <p className='m-1 text-dayColor dark:text-darkColor'>And for the artist to manage her sellings in a comfortable way.</p>
+
+
+      </motion.div>
+
+      <div className='flex justify-center flex-wrap j gap-5 m-7 '>
+        <img className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1  rounded-md bg-dayColor dark:bg-darkColor' src={muiIcon} alt="" />
+        <IoLogoJavascript className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1  rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <IoLogoReact className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <DiGit className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <IoLogoHtml5 className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+      </div>
+
+
+
+      <div className='flex flex-row justify-evenly p-6 m-3 '>
+      <a target="_blank" rel="noopener noreferrer" className='rounded-md rel="noopener noreferrer" bg-dayColor dark:bg-darkColor text-darkColor dark:text-dayColor text-lg p-1' href="https://fre-manen.vercel.app/"> Deploy</a>
+      <a target="_blank" rel="noopener noreferrer" className='rounded-md bg-dayColor dark:bg-darkColor text-darkColor dark:text-dayColor text-lg p-1' href="https://github.com/MauriJara312/artistPortfolio">Code</a>
+      </div>
+
+      </div>
+
+
+      
+
+
+    )
+  } 
+
+
+
+
+                </motion.div>
+
+                <motion.div 
+
+
+transition={{layout:{duration:1,type:"spring"}}}
+
+layout
+
+onClick={()=>(setPIsOpen(!pIsOpen))}      
+
+
+className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+
+  <div className='max-sm:flex-col'>
+
+   <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Gamepedia</motion.h2>
+  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto3}  />
+
+  </div>
+
+
+
+  {
+    pIsOpen && (
+      <div>
+      <motion.div 
+      
+      initial={{
+        opacity:0
+      }}  
+
+      transition={{
+        duration:1
+      }}
+
+      animate={{
+        opacity:1
+      }}
+      
+      className=' p-5 mt-5 flex flex-col max-sm:flex-col text-center '>
+
+        <p className='m-1 text-dayColor dark:text-darkColor'>Its objective is to give the user control over a data base of videogmes. Consuming the RAWG videogames API.</p>
+
+        <p className='m-1 text-dayColor dark:text-darkColor'>The user can sort, search or create a new videogame.</p>
+
+
+      </motion.div>
+
+      <div className='flex justify-center flex-wrap j gap-5 m-7 '>
+        <IoLogoJavascript className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1  rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <IoLogoReact className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <DiGit className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <IoLogoNodejs className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <SiPostgresql className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <SiRedux className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/>                                          
+        <IoLogoHtml5 className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <SiExpress className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <SiCss3 className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/>
+      </div>
+
+
+
+      <div className='flex flex-row justify-evenly p-6 m-3 '>
+      <a target="_blank" rel="noopener noreferrer" className='rounded-md bg-dayColor dark:bg-darkColor text-darkColor dark:text-dayColor text-lg p-1' href="https://github.com/MauriJara312/Proyect-VideogamesApp">Code</a>
+      </div>
+
+      </div>
+
+
+      
+
+
+    )
+  } 
+
+
 
 
                 </motion.div>
@@ -1487,6 +1646,161 @@ animate={{
 
 
                </motion.div>
+
+               <motion.div 
+
+
+transition={{layout:{duration:1,type:"spring"}}}
+
+layout
+
+onClick={()=>(setPIsOpen(!pIsOpen))}      
+
+
+className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+
+  <div className='max-sm:flex-col'>
+
+   <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Artist Web Page</motion.h2>
+  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto2}  />
+
+  </div>
+
+
+
+  {
+    pIsOpen && (
+      <div>
+      <motion.div 
+      
+      initial={{
+        opacity:0
+      }}  
+
+      transition={{
+        duration:1
+      }}
+
+      animate={{
+        opacity:1
+      }}
+      
+      className=' p-5 mt-5 flex flex-col max-sm:flex-col text-center '>
+
+        <p className='m-1 text-dayColor dark:text-darkColor'>Su objetivo es mostrar al usuario el trabajo del artista.</p>
+
+        <p className='m-1 text-dayColor dark:text-darkColor'>Y darle al artista una manera mas comoda de manejar sus ventas.</p>
+
+
+      </motion.div>
+
+      <div className='flex justify-center flex-wrap j gap-5 m-7 '>
+        <img className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1  rounded-md bg-dayColor dark:bg-darkColor' src={muiIcon} alt="" />
+        <IoLogoJavascript className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1  rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <IoLogoReact className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <DiGit className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <IoLogoHtml5 className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+      </div>
+
+
+
+      <div className='flex flex-row justify-evenly p-6 m-3 '>
+      <a target="_blank" rel="noopener noreferrer" className='rounded-md rel="noopener noreferrer" bg-dayColor dark:bg-darkColor text-darkColor dark:text-dayColor text-lg p-1' href="https://fre-manen.vercel.app/"> Deploy</a>
+      <a target="_blank" rel="noopener noreferrer" className='rounded-md bg-dayColor dark:bg-darkColor text-darkColor dark:text-dayColor text-lg p-1' href="https://github.com/MauriJara312/artistPortfolio">Code</a>
+      </div>
+
+      </div>
+
+
+      
+
+
+    )
+  } 
+
+
+
+
+                </motion.div>
+
+                <motion.div 
+
+
+transition={{layout:{duration:1,type:"spring"}}}
+
+layout
+
+onClick={()=>(setPIsOpen(!pIsOpen))}      
+
+
+className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+
+  <div className='max-sm:flex-col'>
+
+   <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Gamepedia</motion.h2>
+  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto3}  />
+
+  </div>
+
+
+
+  {
+    pIsOpen && (
+      <div>
+      <motion.div 
+      
+      initial={{
+        opacity:0
+      }}  
+
+      transition={{
+        duration:1
+      }}
+
+      animate={{
+        opacity:1
+      }}
+      
+      className=' p-5 mt-5 flex flex-col max-sm:flex-col text-center '>
+
+        <p className='m-1 text-dayColor dark:text-darkColor'>Tiene por objetivo brindarle al usuario el poder de navegar por una base dedatos de videojuegos. Consumiendo la RAWG videogames API.</p>
+
+        <p className='m-1 text-dayColor dark:text-darkColor'>El usuario puede ordenar, filtrar o crear nuevos videojuegos.</p>
+
+
+      </motion.div>
+
+      <div className='flex justify-center flex-wrap j gap-5 m-7 '>
+        <IoLogoJavascript className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1  rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <IoLogoReact className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <DiGit className='text-darkColor hover:scale-110 dark:text-dayColor  h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <IoLogoNodejs className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <SiPostgresql className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <SiRedux className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/>                                          
+        <IoLogoHtml5 className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <SiExpress className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/> 
+        <SiCss3 className='text-darkColor hover:scale-110 dark:text-dayColor h-9 w-9 p-1 rounded-md bg-dayColor dark:bg-darkColor'/>
+      </div>
+
+
+
+      <div className='flex flex-row justify-evenly p-6 m-3 '>
+      <a target="_blank" rel="noopener noreferrer" className='rounded-md bg-dayColor dark:bg-darkColor text-darkColor dark:text-dayColor text-lg p-1' href="https://github.com/MauriJara312/Proyect-VideogamesApp">Code</a>
+      </div>
+
+      </div>
+
+
+      
+
+
+    )
+  } 
+
+
+
+
+                </motion.div>
 
 
        </div>
