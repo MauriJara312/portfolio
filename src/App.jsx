@@ -237,15 +237,9 @@ function App() {
               to="contacto" spy={true} smooth={true} offset={-5} duration={500}
   
               className=' hover:drop-shadow-xl text-sm  shadow-darkColor hover:scale-125 transition-all mr-12 max-sm:mr-16 hover:cursor-pointer rounded-lg h-10  text-darkColor dark:text-dayColor'>Contact</Link>
-              
-      
-              {/* <button className=' hover:drop-shadow-xl  hover:shadow-lg shadow-myColor hover:scale-105 transition-all mx-5 px-4 border-t-4 border-l-4 mr-24 rounded-lg  text-myColor h-10  '>
-                Download Resume 📥
-              </button>              */}
-      
             
               
-                  <a onClick={dark} className='hover:scale-105 max-sm:absolute mt max-sm:top-2 max-sm:right-9 transition-all dark:text-dayColor  hover:cursor-pointer  max-sm:h-6 max-sm:w-6 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 text-darkColor shadow-md hover:shadow-lg   '>
+              <a onClick={dark} className='hover:scale-105 max-sm:absolute mt max-sm:top-2 max-sm:right-9 transition-all dark:text-dayColor  hover:cursor-pointer  max-sm:h-6 max-sm:w-6 w-8 h-8 p-2  max-sm:p-1.5 max-sm:text-xs rounded-sm hover:text-darkColor hover:drop-shadow-xl border-t-2 border-l-2 text-darkColor shadow-md hover:shadow-lg   '>
               <BsFillMoonStarsFill/>
               </a>
       
