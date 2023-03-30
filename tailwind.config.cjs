@@ -9,7 +9,7 @@ module.exports = {
     colors:{
       //og daycolor #bae8e8
       //og dark color #272343
-      //ogmycolor #6246ea
+      //og mycolor #6246ea
       myColor : "#6246ea",
       dayColor : "#90b4ce",
       darkColor: "#181818",

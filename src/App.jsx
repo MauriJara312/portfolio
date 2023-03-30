@@ -6,7 +6,6 @@ import proyecto1 from "./assets/proyecto1.jpeg"
 import proyecto2 from "./assets/proyecto2.png"
 import proyecto3 from "./assets/proyecto3.png"
 import muiIcon from "./assets/muiIcon.png"
-import logo from "./assets/logo.jpeg"
 import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 import { useMediaQuery } from './Hooks/size';
@@ -37,10 +36,6 @@ import {
     BsInstagram,
     BsGithub
    } from "react-icons/bs";
-
-import { 
-    GiSunglasses,
-   } from "react-icons/gi";
 import { 
   AiOutlineArrowDown,
    } from "react-icons/ai";
@@ -187,7 +182,7 @@ function App() {
 
         id='/'
         
-        className='bg-dayColor min-h-screen sm:max-w-full pt-14 transition-colors duration-500 dark:transition-colors dark:duration-500 just columns-1 dark:bg-darkColor overflow-hidden'> 
+        className='bg-dayColor font-mono min-h-screen sm:max-w-full pt-14 transition-colors duration-500 dark:transition-colors dark:duration-500  columns-1 dark:bg-darkColor overflow-hidden'> 
         
 
 
@@ -214,7 +209,7 @@ function App() {
           opacity: 1,
         }}
       
-          className='flex fixed top-0 right-0 mb-0 backdrop-contrast-75 backdrop-blur-sm rounded-md z-10 h-12 max-sm:h-10 p-3 mt-0 text-opacity-95 font-semibolds text-base'>
+        className='flex fixed top-0 right-0 mb-0 backdrop-contrast-100 backdrop-blur-sm z-10 h-12 max-sm:h-10 p-3 mt-0 text-opacity-95 font-semibolds text-base'>
   
               <Link 
   
@@ -386,7 +381,7 @@ function App() {
 
         {/* titulo */}
     
-        <div className='w-screen flex flex-col max-sm:mt-1 mb-16 '>
+        <div className='w-screen max-sm:h-auto max-sm:mb-52 h-screen mt-10 flex flex-col max-sm:mt-16'>
 
     
         <motion.div 
@@ -401,9 +396,7 @@ function App() {
         animate={{
           opacity:1
           }}
-          
-        
-
+ 
         className='bg-fixed shadow-2xl shadow-darkColor flex flex-col bg-cover bg-[url("https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")]'>
 
         
@@ -427,7 +420,7 @@ function App() {
               delay:0.5
             }}
           
-          className=' mt-16 px-16 max-sm:text-2xl border-t-4 text-6xl rounded-md border-r-4 font-semibolds w-auto text-center p-5 text-dayColor' >Mauricio Jara</motion.h1>
+          className=' mt-16 px-16 backdrop-blur-sm max-sm:text-2xl border-t-4 text-6xl rounded-md border-r-4 font-semibolds w-auto text-center p-5 text-dayColor' >Mauricio Jara</motion.h1>
     
             <motion.h3 
             initial={{
@@ -447,7 +440,7 @@ function App() {
 
 
           }}
-            className=' text-center max-sm:text-base text-4xl text-dayColor ' >Keep it simple</motion.h3>
+            className=' text-center backdrop-blur-sm max-sm:text-base text-5xl text-dayColor '>Keep it simple</motion.h3>
 
            <motion.h1 
            
@@ -468,56 +461,15 @@ function App() {
               delay:0.5
             }}
            
-           className='mb-16 border-b-4 max-sm:text-base border-l-4 text-5xl rounded-md font-semibolds text-center w-auto  p-5 text-dayColor justify-end'>
+           className='mb-16 border-b-4 backdrop-blur-sm  max-sm:text-base border-l-4 text-5xl rounded-md font-semibolds text-center w-auto  p-5 text-dayColor justify-end'>
             Full Stack Web Developer
            </motion.h1>
    
 
         </motion.div>
-
-
-            {/* imagen */}
-
-            <motion.div
-
-className='flex justify-center mt-20 bg-darkColor dark:bg-dayColor rounded-full w-48 h-48 '
-
-initial={{
-  scale:0
-}}
-
-transition={{
-  type: "spring",
-  bounce:0.3,
-  duration:2,
-  delay:4,
-  
-}}
-
-animate={isSmall?
-  { 
-  x:600,
-  y:-50,
-scale: 1,
-  }
-  :
-  {
-    x:110,
-    y:-50,
-    scale: 1
-  }
-}
->
-
-<GiSunglasses className='text-9xl mt-5 text-dayColor dark:text-darkColor '/>
-
-</motion.div>
-
-             
+   
 
         </div>
-
-
 
        {/* about y skills */}
 
@@ -531,7 +483,7 @@ scale: 1,
 
       >
 
-          <h1 className='hover:scale-105 transition-all flex text-4xl font-semibold  border-b-2 m-0 pb-0 w-screen text-darkColor dark:text-dayColor  justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor  b-8' >About</h1>
+          <h1 className='hover:scale-105 transition-all flex text-4xl font-semibold  m-0 pb-0 w-screen text-darkColor dark:text-dayColor  justify-center  shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor  b-8' >About</h1>
 
             <div ref={ref} className='max-sm:p-0 max-sm:flex-col  w-auto flex'>
 
@@ -539,9 +491,7 @@ scale: 1,
 
                   <div className='   hover:scale-110 transition-all max-sm:m-0 m-5 pt-3 mb-11 mt-0 rounded-xl'>
 
-                      <h1 className='max-sm:text-sm flex justify-center pt-0 p-7 rounded-lg text-darkColor dark:text-dayColor'>Hi! I'm Mauricio</h1>
-
-                      <p className='max-sm:text-sm text-sm  block text-center  text-darkColor dark:text-dayColor'>The Developer you need</p>
+                      <h1 className='max-sm:text-sm flex justify-center rounded-lg text-darkColor dark:text-dayColor'>Hi! I'm Mauricio</h1>
 
                       <p className=' max-sm:text-sm text-sm inline-block text-center px-7 pt-7 text-darkColor dark:text-dayColor '>I have always been curious about the IT world and after several years of self-taught learning I graduated from soyHenry's full stack web developer bootcamp.
 
@@ -663,7 +613,7 @@ animate={{
 
                   {/* skillset */}
 
-                  <div className=' flex flex-wrap justify-center w-auto text-darkColor pt-3 gap-5 border-l-4 mx-4 px-4' >
+                  <div className=' flex flex-wrap justify-center w-auto text-darkColor pt-3 gap-5 mx-4 px-4' >
 
                     <h2 className='flex w-4/5 text-3xl justify-center hover:scale-105 transition-all rounded-lg  text-darkColor dark:text-dayColor '>My SkillSet</h2>
 
@@ -687,7 +637,7 @@ animate={{
 
       </motion.div>
 
-        {/* proyectos */}
+        {/* proyectos */} 
 
         <motion.div 
         
@@ -699,7 +649,7 @@ animate={{
 
         >
 
-        <h1 className='hover:scale-105 max-sm:flex-col max-sm:text-center transition-all flex text-4xl font-semibold justify border-b-2 pb-0  text-darkColor dark:text-dayColor justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor mb-8' >Projects</h1>
+        <h1 className='hover:scale-105 transition-all flex text-4xl font-semibold  m-0 pb-0 w-screen text-darkColor dark:text-dayColor  justify-center  shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor  b-8 mb-8' >Projects</h1>
 
         {/* //cards proyectos// */}
 
@@ -715,12 +665,12 @@ animate={{
                 onClick={()=>(setPIsOpen(!pIsOpen))}      
                 
                 
-                className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+                className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-sm shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  '>
 
                   <div className='max-sm:flex-col'>
 
                    <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Find me a Home</motion.h2>
-                  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto1}  />
+                  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-80 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto1}  />
 
                   </div>
 
@@ -796,12 +746,12 @@ layout
 onClick={()=>(setPIsOpen(!pIsOpen))}      
 
 
-className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-sm shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  '>
 
   <div className='max-sm:flex-col'>
 
    <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Artist Web Page</motion.h2>
-  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto2}  />
+  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-80 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto2}  />
 
   </div>
 
@@ -872,12 +822,12 @@ layout
 onClick={()=>(setPIsOpen(!pIsOpen))}      
 
 
-className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-sm shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64 '>
 
   <div className='max-sm:flex-col'>
 
    <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Gamepedia</motion.h2>
-  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto3}  />
+  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-80 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto3}  />
 
   </div>
 
@@ -955,7 +905,7 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
       id='contacto'
       className='flex flex-col justify-center w-screen shadow-xl shadow-dakColor dark:shadow-dayColor'>
 
-      <h1 className='hover:scale-105 max-sm:flex-col max-sm:text-center transition-all flex text-4xl font-semibold justify border-b-2 pb-0  text-darkColor dark:text-dayColor justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor mb-8' >Contact</h1>
+      <h1 className='hover:scale-105 transition-all flex text-4xl font-semibold  m-0 pb-0 w-screen text-darkColor dark:text-dayColor  justify-center  shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor  b-8 mb-8' >Contact</h1>
                     
       <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor'>If you have any idea, proposal or just want to contact me, do not hesitate to contact me</h3>
       <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor pb-8 border-b-2'>I will be more than happy to answer your messages as soon as I can!</h3>
@@ -964,18 +914,19 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
 
                     <div className='flex flex-row m-8 justify-evenly'>
 
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mauricio-jara-web/">
-                                      <BsLinkedin className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
-                  </a>
-                  <a target="_blank" rel="noopener noreferrer" href="mailto:mauri13jarita@gmail.com">
-                                      <IoMdMail className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
-                  </a>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/MauriJara312">
-                                      <BsGithub className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
-                  </a>
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mauri_jara312/">
-                                      <BsInstagram className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
-                  </a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mauricio-jara-web/">
+                                     <BsLinkedin className='shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                 </a>
+                 <a target="_blank" rel="noopener noreferrer" href="mailto:mauri13jarita@gmail.com">
+                                     <IoMdMail className='shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                 </a>
+                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/MauriJara312">
+                                     <BsGithub className='shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                 </a>
+                 <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mauri_jara312/">
+                                     <BsInstagram className='shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                 </a>
+
 
                   </div>
 
@@ -1016,14 +967,6 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
 
                   </div>
 
-                  <div className='justify-center flex'>
-
-                  <GiSunglasses className=' flex  w-14 h-14 text-darkColor p-1 dark:text-dayColor dark:bg-darkColor rounded-full bg-dayColor  hover:scale-110 transition-all'/>
-
-                  </div>
-   
-
-
       </div>
     
         </div> 
@@ -1035,7 +978,7 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
 
        id='/'
        
-       className='bg-dayColor min-h-screen sm:max-w-full pt-14 transition-colors duration-500 dark:transition-colors dark:duration-500 just columns-1 dark:bg-darkColor overflow-hidden'> 
+       className='bg-dayColor font-mono min-h-screen sm:max-w-full pt-14 transition-colors duration-500 dark:transition-colors dark:duration-500 just columns-1 dark:bg-darkColor overflow-hidden'> 
        
 
 
@@ -1062,7 +1005,7 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
          opacity: 1,
        }}
      
-         className='flex fixed top-0 right-0 mb-0 backdrop-contrast-75 backdrop-blur-sm rounded-md z-10 h-12 max-sm:h-10 p-3 mt-0 text-opacity-95 font-semibolds text-base'>
+         className='flex fixed top-0 right-0 mb-0 backdrop-contrast-100 backdrop-blur-sm z-10 h-12 max-sm:h-10 p-3 mt-0 text-opacity-95 font-semibolds text-base'>
  
              <Link 
  
@@ -1240,7 +1183,7 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
 
        {/* titulo */}
    
-       <div className='w-screen flex flex-col max-sm:mt-1 mb-16 '>
+       <div className='w-screen max-sm:h-auto max-sm:mb-52 h-screen mt-10 flex flex-col max-sm:mt-16 '>
 
    
        <motion.div 
@@ -1258,7 +1201,7 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
          
        
 
-       className='bg-fixed shadow-2xl shadow-darkColor flex flex-col bg-cover bg-[url("https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")]'>
+       className='shadow-2xl shadow-darkColor flex flex-col bg-cover bg-fixed bg-[url("https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")]'>
 
        
 
@@ -1281,7 +1224,7 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
              delay:0.5
            }}
          
-         className=' mt-16 px-16 max-sm:text-2xl border-t-4 text-6xl rounded-md border-r-4 font-semibolds w-auto text-center p-5 text-dayColor' >Mauricio Jara</motion.h1>
+         className=' mt-16 px-16 max-sm:text-2xl border-t-4 text-6xl  rounded-md border-r-4 font-semibolds w-auto text-center p-5 backdrop-blur-sm text-dayColor' >Mauricio Jara</motion.h1>
    
            <motion.h3 
            initial={{
@@ -1301,7 +1244,7 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
 
 
          }}
-           className=' text-center max-sm:text-base text-4xl text-dayColor ' >Mantenlo simple</motion.h3>
+           className=' text-center max-sm:text-base text-5xl text-dayColor backdrop-blur-sm' >Mantenlo simple</motion.h3>
 
           <motion.h1 
           
@@ -1322,51 +1265,12 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
              delay:0.5
            }}
           
-          className='mb-16 border-b-4 max-sm:text-base border-l-4 text-5xl rounded-md font-semibolds text-center w-auto  p-5 text-dayColor justify-end'>
+          className='mb-16 border-b-4 max-sm:text-base border-l-4 text-5xl rounded-md font-semibolds text-center w-auto  p-5 text-dayColor justify-end backdrop-blur-sm'>
           Desarrollador Full Stack 
           </motion.h1>
   
 
        </motion.div>
-
-
-           {/* imagen */}
-
-           <motion.div
-
-           className='flex justify-center mt-20 bg-darkColor dark:bg-dayColor rounded-full w-48 h-48 '
-
-           initial={{
-             scale:0
-           }}
-
-           transition={{
-             type: "spring",
-             bounce:0.3,
-             duration:2,
-             delay:4,
-             
-           }}
-
-           animate={isSmall?
-             { 
-             x:600,
-             y:-50,
-           scale: 1,
-             }
-             :
-             {
-               x:110,
-               y:-50,
-               scale: 1
-             }
-           }
-           >
-
-           <GiSunglasses className='text-9xl mt-5 text-dayColor dark:text-darkColor '/>
-
-           </motion.div>
-
             
 
        </div>
@@ -1385,7 +1289,7 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
 
      >
 
-         <h1 className='hover:scale-105 transition-all flex text-4xl font-semibold  border-b-2 m-0 pb-0 w-screen text-darkColor dark:text-dayColor  justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor   dark:shadow-dayColor  b-8' >Información</h1>
+         <h1 className='hover:scale-105 transition-all flex text-4xl font-semibold m-0 pb-0 w-screen text-darkColor dark:text-dayColor  justify-center hover:drop-shadow-xl shadow-sm hover:shadow-md shadow-darkColor   dark:shadow-dayColor  b-8' >Información</h1>
 
            <div ref={ref} className='max-sm:p-0 max-sm:flex-col  w-auto flex'>
 
@@ -1393,9 +1297,7 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
 
                  <div className='   hover:scale-110 transition-all max-sm:m-0 m-5 pt-3 mb-11 mt-0 rounded-xl'>
 
-                     <h1 className='max-sm:text-sm flex justify-center pt-0 p-7 rounded-lg text-darkColor dark:text-dayColor'>Hola! Soy Mauricio</h1>
-
-                     <p className='max-sm:text-sm text-sm  block text-center  text-darkColor dark:text-dayColor'>Desarrollador web full stack</p>
+                     <h1 className='max-sm:text-sm flex justify-center rounded-lg text-darkColor dark:text-dayColor'>Hola! Soy Mauricio</h1>
 
                      <p className=' max-sm:text-sm text-sm inline-block text-center px-7 pt-7 text-darkColor dark:text-dayColor '>Siempre sentí curiosisdad por el mundo IT y tras varios años de aprendizaje autodidacta me gradué del bootcamp full stack web developer de soyHenry.
 
@@ -1518,9 +1420,9 @@ animate={{
 
                  {/* skillset */}
 
-                 <div className=' flex flex-wrap justify-center w-auto text-darkColor pt-3 gap-5 border-l-4 mx-4 px-4' >
+                 <div className=' flex flex-wrap justify-center w-auto text-darkColor pt-3 gap-5 mx-4 px-4' >
 
-                   <h2 className='flex w-4/5 text-3xl justify-center hover:scale-105 transition-all rounded-lg  text-darkColor dark:text-dayColor '>Habilidades</h2>
+                   <h2 className='flex w-4/5 text-3xl justify-center hover:scale-105 transition-all  text-darkColor dark:text-dayColor '>Habilidades</h2>
 
                      <IoLogoJavascript className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor' />
                      <DiGit className='hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor' />
@@ -1554,7 +1456,7 @@ animate={{
 
        >
 
-       <h1 className='hover:scale-105 max-sm:flex-col max-sm:text-center transition-all flex text-4xl font-semibold justify border-b-2 pb-0  text-darkColor dark:text-dayColor justify-center hover:drop-shadow-xl shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor mb-8' >Proyectos</h1>
+       <h1 className='hover:scale-105 transition-all flex text-4xl font-semibold m-0 pb-0 w-screen text-darkColor dark:text-dayColor  justify-center hover:drop-shadow-xl shadow-sm hover:shadow-md shadow-darkColor   dark:shadow-dayColor  b-8 mb-8' >Proyectos</h1>
 
        {/* //cards proyectos// */}
 
@@ -1570,12 +1472,12 @@ animate={{
                onClick={()=>(setPIsOpen(!pIsOpen))}      
                
                
-               className='flex max-sm:flex-col hover:cursor-pointer  text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+               className='flex max-sm:flex-col hover:cursor-pointer  text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor shadow-sm shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64 '>
 
                  <div className='max-sm:flex-col'>
 
                   <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Find me a Home</motion.h2>
-                 <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto1}  />
+                 <motion.img layout="position" className='rounded-3xl p-4 h-64 w-80 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto1}  />
 
                  </div>
 
@@ -1651,12 +1553,12 @@ layout
 onClick={()=>(setPIsOpen(!pIsOpen))}      
 
 
-className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-sm shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64'>
 
   <div className='max-sm:flex-col'>
 
    <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Artist Web Page</motion.h2>
-  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto2}  />
+  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-80 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto2}  />
 
   </div>
 
@@ -1727,12 +1629,12 @@ layout
 onClick={()=>(setPIsOpen(!pIsOpen))}      
 
 
-className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor  shadow-lg shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64  rounded-lg'>
+className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-darkColor dark:bg-dayColor bg-darkColor shadow-sm shadow-darkColor dark:shadow-dayColor  p-2 m-2 w-auto max-sm:w-64 '>
 
   <div className='max-sm:flex-col'>
 
    <motion.h2 layout="position"className='text-lg  p-3  text-dayColor dark:text-darkColor'>Gamepedia</motion.h2>
-  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-72 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto3}  />
+  <motion.img layout="position" className='rounded-3xl p-4 h-64 w-80 max-sm:w-52 max-sm:h-48 shadow-md shadow-dayColor max-sm:w dark:shadow-darkColor  m-4' src={proyecto3}  />
 
   </div>
 
@@ -1819,16 +1721,16 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
                    <div className='flex flex-row m-8 justify-evenly'>
 
                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mauricio-jara-web/">
-                                     <BsLinkedin className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                                     <BsLinkedin className='shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 text-dayColor hover:text-dayColor dark:bg-dayColor'/>
                  </a>
                  <a target="_blank" rel="noopener noreferrer" href="mailto:mauri13jarita@gmail.com">
-                                     <IoMdMail className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                                     <IoMdMail className='shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 text-dayColor hover:text-dayColor dark:bg-dayColor'/>
                  </a>
                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/MauriJara312">
-                                     <BsGithub className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                                     <BsGithub className='shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 text-dayColor hover:text-dayColor dark:bg-dayColor'/>
                  </a>
                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mauri_jara312/">
-                                     <BsInstagram className='shadow-md hover:shadow-lg shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 rounded-lg text-dayColor hover:text-dayColor dark:bg-dayColor'/>
+                                     <BsInstagram className='shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor hover:scale-105 transition-all dark:text-darkColor bg-darkColor w-20 h-20 min-w-min p-4 m-2 text-dayColor hover:text-dayColor dark:bg-dayColor'/>
                  </a>
 
                  </div>
@@ -1870,22 +1772,13 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
 
                  </div>
 
-                 <div className='justify-center flex'>
 
-                 <GiSunglasses className=' flex  w-14 h-14 text-darkColor p-1 dark:text-dayColor dark:bg-darkColor rounded-full bg-dayColor  hover:scale-110 transition-all'/>
-
-                 </div>
-  
-
-
-     </div>
+          </div>
    
        </div>
 
      
       }
-
-  
 
     </motion.div>
   
