@@ -905,12 +905,9 @@ className='flex max-sm:flex-col hover:cursor-pointer text-dayColor dark:text-dar
       id='contacto'
       className='flex flex-col justify-center w-screen shadow-xl shadow-dakColor dark:shadow-dayColor'>
 
-      <h1 className='hover:scale-105 transition-all flex text-4xl font-semibold  m-0 pb-0 w-screen text-darkColor dark:text-dayColor  justify-center  shadow-sm hover:shadow-md shadow-darkColor dark:shadow-dayColor  b-8 mb-8' >Contact</h1>
-                    
-      <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor'>If you have any idea, proposal or just want to contact me, do not hesitate to contact me</h3>
-      <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor pb-8 border-b-2'>I will be more than happy to answer your messages as soon as I can!</h3>
+
       <h3 className='text-center m-5 text-3xl text-darkColor dark:text-dayColor'>You can reach me through</h3>
-      <AiOutlineArrowDown className="self-center animate-bounce transition-all m-5 text-6xl text-darkColor dark:text-dayColor"/>
+  
 
                     <div className='flex flex-row m-8 justify-evenly'>
 
